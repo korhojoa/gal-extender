@@ -1,0 +1,6 @@
+[submodule "third_party/mib2-shared-crates"]
+	path = third_party/mib2-shared-crates
+	url = ../mib2-shared-crates.git
+[submodule "third_party/qnx650-crates"]
+	path = third_party/qnx650-crates
+	url = ../qnx650-crates.git

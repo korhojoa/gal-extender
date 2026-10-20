@@ -1,0 +1,16 @@
+# SPDX-License-Identifier: GPL-3.0-only
+# Copyright (C) 2026 korhojoa
+
+[package]
+name = "gal-vendor-abi"
+version = "0.1.0"
+edition = "2021"
+license = "GPL-3.0-only"
+publish = false
+description = "Typed gal vendor symbols, object offsets and the fake endpoint vtable for gal-extender features"
+
+[lib]
+name = "gal_vendor_abi"
+
+[dependencies]
+qnx-dl = { path = "../../third_party/qnx650-crates/qnx-dl" }

@@ -1,0 +1,5 @@
+# Keep Clippy's version-sensitive decisions aligned with rust-toolchain.toml.
+msrv = "1.99.0"
+
+# Preserve native ABI signatures when applying style lints.
+avoid-breaking-exported-api = true

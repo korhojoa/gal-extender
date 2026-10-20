@@ -1,0 +1,16 @@
+# SPDX-License-Identifier: GPL-3.0-only
+# Copyright (C) 2026 korhojoa
+
+[package]
+name = "most-isotx2"
+version = "0.1.0"
+edition = "2021"
+license = "GPL-3.0-only"
+publish = false
+description = "The MIB2 MOST isochronous transmit device /dev/mlb/isoTX2: devctl codes and block writes"
+
+[lib]
+name = "most_isotx2"
+
+[dependencies]
+qnx-errno = { path = "../../third_party/qnx650-crates/qnx-errno" }

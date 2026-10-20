@@ -1,0 +1,20 @@
+# SPDX-License-Identifier: GPL-3.0-only
+# Copyright (C) 2026 korhojoa
+
+[package]
+name = "gal-cluster-menu"
+version = "0.1.0"
+edition = "2021"
+license = "GPL-3.0-only"
+publish = false
+description = "The gal-extender ui feature: a gal_loader.conf settings menu on the MIB2 instrument cluster"
+
+[lib]
+name = "gal_cluster_menu"
+
+[dependencies]
+gal-feature-api = { path = "../gal-feature-api" }
+gal-cluster-video = { path = "../gal-cluster-video" }
+qnx-slog = { path = "../../third_party/qnx650-crates/qnx-slog" }
+qnx-time = { path = "../../third_party/qnx650-crates/qnx-time" }
+

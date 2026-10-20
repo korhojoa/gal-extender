@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: GPL-3.0-only
+# Copyright (C) 2026 korhojoa
+
+[package]
+name = "gal-loader"
+version = "1.3.1"
+edition = "2021"
+license = "GPL-3.0-only"
+publish = false
+
+[lib]
+name = "gal_loader"
+crate-type = ["cdylib"]
+
+[features]
+default = []
+wireless = ["dep:gal-wireless-transport"]
+
+[dependencies]
+protobuf-wire = { path = "../protobuf-wire" }
+gal-vendor-abi = { path = "../gal-vendor-abi" }
+extender-settings = { path = "../../third_party/mib2-shared-crates/extender-settings" }
+qnx-slog = { path = "../../third_party/qnx650-crates/qnx-slog", features = ["alloc"] }
+qnx-dl = { path = "../../third_party/qnx650-crates/qnx-dl", features = ["alloc"] }
+oldabi-entry = { path = "../../third_party/qnx650-crates/oldabi-entry" }
+gal-feature-api = { path = "../gal-feature-api" }
+gal-sensor-inject = { path = "../gal-sensor-inject" }
+gal-cluster-video = { path = "../gal-cluster-video" }
+
+gal-cluster-menu = { path = "../gal-cluster-menu" }
+gal-daemon-launcher = { path = "../gal-daemon-launcher" }
+gal-input-keys = { path = "../gal-input-keys" }
+gal-vendor-uplink = { path = "../gal-vendor-uplink" }
+gal-wireless-transport = { path = "../gal-wireless-transport", optional = true }

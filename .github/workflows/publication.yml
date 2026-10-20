@@ -1,0 +1,51 @@
+# SPDX-License-Identifier: GPL-3.0-only
+name: Rust checks and build
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  script-checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check build scripts
+        run: |
+          sh -n .github/scripts/build-public-rust.sh
+          sh -n .github/scripts/check-public-rust.sh
+          sh -n build.sh
+          shellcheck build.sh .github/scripts/*.sh
+  rust-build:
+    needs: script-checks
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/korhojoa/qnx650-compiler@sha256:85f95b995d4b5dc2c323a6842c29b5c08652f34cc2288f6cc745534f5b2ecc7a
+    timeout-minutes: 15
+    steps:
+      - name: Get the exact source commit without a Node runtime
+        env:
+          REPOSITORY_URL: ${{ github.server_url }}/${{ github.repository }}.git
+          COMMIT_SHA: ${{ github.sha }}
+        run: |
+          set -eu
+          case "$COMMIT_SHA" in ''|*[!0-9a-f]*) exit 2;; esac
+          [ "${#COMMIT_SHA}" -eq 40 ]
+          git init .
+          git remote add origin "$REPOSITORY_URL"
+          git fetch --no-tags --depth=1 origin "$COMMIT_SHA"
+          git checkout --detach FETCH_HEAD
+          [ "$(git rev-parse HEAD)" = "$COMMIT_SHA" ]
+          git submodule sync --recursive
+          git submodule update --init --recursive
+      - name: Resolve locked public crate dependencies
+        run: |
+          cargo fetch --locked
+      - name: Check and build the workspace
+        env:
+          CARGO_TARGET_DIR: ${{ github.workspace }}/target
+        run: |
+          sh .github/scripts/check-public-rust.sh
+          sh .github/scripts/build-public-rust.sh

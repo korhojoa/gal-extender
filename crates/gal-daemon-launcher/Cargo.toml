@@ -1,0 +1,18 @@
+# SPDX-License-Identifier: GPL-3.0-only
+# Copyright (C) 2026 korhojoa
+
+[package]
+name = "gal-daemon-launcher"
+version = "0.1.0"
+edition = "2021"
+license = "GPL-3.0-only"
+publish = false
+description = "The gal-extender launcher feature: start daemons and one-shot commands, detached, at gal start"
+
+[lib]
+name = "gal_daemon_launcher"
+
+[dependencies]
+gal-feature-api = { path = "../gal-feature-api" }
+qnx-slog = { path = "../../third_party/qnx650-crates/qnx-slog" }
+

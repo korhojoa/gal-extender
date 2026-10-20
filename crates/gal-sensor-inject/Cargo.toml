@@ -1,0 +1,22 @@
+# SPDX-License-Identifier: GPL-3.0-only
+# Copyright (C) 2026 korhojoa
+
+[package]
+name = "gal-sensor-inject"
+version = "0.1.0"
+edition = "2021"
+license = "GPL-3.0-only"
+publish = false
+description = "The gal-extender sensor feature: EXLAP vehicle data into gal's SensorSource"
+
+[lib]
+name = "gal_sensor_inject"
+
+[dependencies]
+gal-feature-api = { path = "../gal-feature-api" }
+gal-vendor-abi = { path = "../gal-vendor-abi" }
+aa-wire-patch = { path = "../aa-wire-patch" }
+protobuf-wire = { path = "../protobuf-wire" }
+qnx-slog = { path = "../../third_party/qnx650-crates/qnx-slog" }
+qnx-dl = { path = "../../third_party/qnx650-crates/qnx-dl" }
+exlap = "=0.1.0"

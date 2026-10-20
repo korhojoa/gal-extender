@@ -1,0 +1,27 @@
+# SPDX-License-Identifier: GPL-3.0-only
+# Copyright (C) 2026 korhojoa
+
+[package]
+name = "gal-cluster-video"
+version = "1.0.3"
+edition = "2021"
+license = "GPL-3.0-only"
+publish = false
+description = "The gal-extender cluster feature: Android Auto video on the MIB2 instrument cluster over MOST isoTX2"
+
+[lib]
+name = "gal_cluster_video"
+
+[dependencies]
+gal-feature-api = { path = "../gal-feature-api" }
+gal-vendor-abi = { path = "../gal-vendor-abi" }
+aa-wire-patch = { path = "../aa-wire-patch" }
+most-isotx2 = { path = "../most-isotx2" }
+h264-ts-mux = { path = "../../third_party/mib2-shared-crates/h264-ts-mux" }
+display-manager-control = { path = "../../third_party/mib2-shared-crates/display-manager-control" }
+qnx-slog = { path = "../../third_party/qnx650-crates/qnx-slog" }
+qnx-time = { path = "../../third_party/qnx650-crates/qnx-time" }
+qnx-errno = { path = "../../third_party/qnx650-crates/qnx-errno" }
+qnx-dl = { path = "../../third_party/qnx650-crates/qnx-dl" }
+
+mpe-encoder-state = { path = "../../third_party/mib2-shared-crates/mpe-encoder-state" }

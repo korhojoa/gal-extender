@@ -1,0 +1,19 @@
+# SPDX-License-Identifier: GPL-3.0-only
+# Copyright (C) 2026 korhojoa
+
+[package]
+name = "gal-input-keys"
+version = "0.1.0"
+edition = "2021"
+license = "GPL-3.0-only"
+publish = false
+description = "Routes gal key events to the active cluster menu"
+
+[lib]
+name = "gal_input_keys"
+
+[dependencies]
+gal-feature-api = { path = "../gal-feature-api" }
+qnx-slog = { path = "../../third_party/qnx650-crates/qnx-slog" }
+gal-cluster-menu = { path = "../gal-cluster-menu" }
+

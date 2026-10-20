@@ -1,0 +1,20 @@
+# SPDX-License-Identifier: GPL-3.0-only
+# Copyright (C) 2026 korhojoa
+
+[package]
+name = "gal-vendor-uplink"
+version = "0.1.0"
+edition = "2021"
+license = "GPL-3.0-only"
+publish = false
+description = "The gal-extender aauplink feature: a second AA vendor-extension channel bridged to btsvcd over the /aa-uplink ring"
+
+[lib]
+name = "gal_vendor_uplink"
+
+[dependencies]
+gal-feature-api = { path = "../gal-feature-api" }
+gal-vendor-abi = { path = "../gal-vendor-abi" }
+qnx-slog = { path = "../../third_party/qnx650-crates/qnx-slog" }
+qnx-shm = { path = "../../third_party/qnx650-crates/qnx-shm" }
+

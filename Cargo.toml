@@ -1,0 +1,31 @@
+# SPDX-License-Identifier: GPL-3.0-only
+[workspace]
+resolver = "2"
+members = [
+    "crates/aa-wire-patch",
+    "crates/gal-btshim",
+    "crates/gal-cluster-menu",
+    "crates/gal-daemon-launcher",
+    "crates/gal-input-keys",
+    "crates/gal-vendor-uplink",
+    "crates/gal-wireless-transport",
+    "crates/gal-cluster-video",
+    "crates/gal-feature-api",
+    "crates/gal-loader",
+    "crates/gal-sensor-inject",
+    "crates/gal-vendor-abi",
+    "crates/most-isotx2",
+    "crates/protobuf-wire",
+]
+# Dependencies retain their independent repository workspaces.
+exclude = ["third_party/mib2-shared-crates", "third_party/qnx650-crates"]
+
+# The injected loader contains panics at its native call boundaries.
+[profile.release]
+opt-level = 2
+panic = "unwind"
+codegen-units = 1
+debug = false
+
+[profile.dev]
+panic = "unwind"

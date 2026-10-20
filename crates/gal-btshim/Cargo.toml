@@ -1,0 +1,22 @@
+# SPDX-License-Identifier: GPL-3.0-only
+[package]
+name = "gal-btshim"
+version = "0.1.0"
+edition = "2021"
+license = "GPL-3.0-only"
+publish = false
+
+[features]
+native-check = []
+
+[lib]
+name = "gal_btshim"
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+sha2 = "=0.10.9"
+qnx-slog = { path = "../../third_party/qnx650-crates/qnx-slog" }
+qnx-dl = { path = "../../third_party/qnx650-crates/qnx-dl" }
+btsvc-core = { path = "../../third_party/mib2-shared-crates/btsvc-core" }
+aawg-creds = { path = "../../third_party/mib2-shared-crates/aawg-creds" }
+
